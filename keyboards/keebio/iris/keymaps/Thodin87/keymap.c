@@ -14,6 +14,7 @@ enum custom_keycodes {
   ADJUST,
   QUOT_SPC,
   GRAV_SPC,
+  TILD_SPC
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -37,9 +38,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //┌────────┬────────┬────────┬────────┬────────┬────────┐                          ┌────────┬────────┬────────┬────────┬────────┬────────┐
      KC_ESC,  KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,                            KC_CIRC, KC_AMPR, KC_ASTR, KC_MINS, KC_EQL,  RALT(KC_Q),
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
-     KC_ESC,  KC_PGUP, LCTL(KC_LEFT),KC_UP,LCTL(KC_RGHT),KC_HOME,                     _______, KC_LPRN, KC_RPRN, KC_EQL , KC_PLUS, RALT(KC_P),
+     KC_ESC,  KC_PGUP, LCTL(KC_LEFT),KC_UP,LCTL(KC_RGHT),KC_HOME,                     GRAV_SPC,KC_LPRN, KC_RPRN, KC_EQL , KC_PLUS, RALT(KC_P),
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
-     KC_LCTL, KC_PGDN, KC_LEFT, KC_DOWN, KC_RGHT, KC_END,                             _______, KC_LBRC, KC_RBRC, KC_MINS, KC_UNDS, RALT(KC_Y),
+     KC_LCTL, KC_PGDN, KC_LEFT, KC_DOWN, KC_RGHT, KC_END,                             TILD_SPC,KC_LBRC, KC_RBRC, KC_MINS, KC_UNDS, RALT(KC_Y),
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┐        ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤
      _______, _______, _______, _______, _______, _______, _______,          _______, _______, KC_LCBR, KC_RCBR, _______, RALT(KC_S), _______,
   //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┬────┘        └───┬────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
@@ -123,6 +124,13 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case GRAV_SPC:
       if (record->event.pressed) {
         SEND_STRING("` ");
+      }
+      break;
+
+
+    case TILD_SPC:
+      if (record->event.pressed) {
+        SEND_STRING("~ ");
       }
       break;
   }

@@ -2,19 +2,18 @@
 
 #define EE_HANDS
 #define _COLEMAK 0
-#define _HALMAK 1
-#define _LOWER 2
-#define _RAISE 3
-#define _ADJUST 4
+#define _LOWER 1
+#define _RAISE 2
+#define _ADJUST 3
 
 
 enum custom_keycodes {
   COLEMAK = SAFE_RANGE,
-  QUOT_SPC = SAFE_RANGE,
-  GRAV_SPC,
   LOWER,
   RAISE,
   ADJUST,
+  QUOT_SPC,
+  GRAV_SPC,
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
